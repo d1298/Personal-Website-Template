@@ -97,12 +97,16 @@ body {
     position: fixed;
     top: 60px;
     right: 200px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
     transition: all 1.7s ease-in-out;
     padding: 100px;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .content1.active {
+    opacity: 1;
+    visibility: visible;
     right: 0px;
     color: rgb(255, 255, 255);
 }
@@ -112,15 +116,56 @@ body {
     bottom: 0;
     left: 200px;
     padding: 100px;
-    color: rgb(0, 0, 0);
+    opacity: 0;
+    color: rgb(255, 0, 0);
+    visibility: hidden;
     transition: all 1.7s ease-in-out;
 }
 
 .content2.active {
+    visibility: visible;
+    opacity: 1;
     left: 0px;
     color: rgb(255, 255, 255);
 }
 
+.content3 {
+    text-align: right;
+    position: fixed;
+    bottom: 200px;
+    right: 0;
+    opacity: 0;
+    color: rgb(255, 0, 0);
+    transition: all 1.7s ease-in-out;
+    padding: 100px;
+    visibility: hidden;
+}
+
+.content3.active {
+    opacity: 1;
+    bottom: 0;
+    visibility: visible;
+    right: 0px;
+    color: rgb(255, 255, 255);
+}
+
+.content4 {
+    position: fixed;
+    opacity: 0;
+    top: 0px;
+    padding: 100px;
+    color: rgb(255, 0, 0);
+    visibility: hidden;
+    transition: all 1.7s ease-in-out;
+}
+
+.content4.active {
+    opacity: 1;
+    top: 60px;
+    visibility: visible;
+    left: 0px;
+    color: rgb(255, 255, 255);
+}
 .footer {
-    margin-top: 120vh;
+    margin-top: 200vh;
 }

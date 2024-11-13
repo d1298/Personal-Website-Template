@@ -1,12 +1,48 @@
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+window.onbeforeunload = () => {
+    window.scrollTo(0,0);
+}
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 1) {
-        sideToTopBar();
-    } else {
+    console.log(window.scrollY);
+    
+    if (window.scrollY > 110) {
+        scrollToContent2();
+
+    } else if ((10 < window.scrollY) && (window.scrollY < 110)) {
+        scrollToContent1();
+
+    } else if (window.scrollY < 10) {
         topToSideBar();
     }
 });
+async function scrollToContent1() {
+    sideToTopBar();
+    content3.classList.remove('active');
+    content4.classList.remove('active');
+    content3.style.transition = "all 1s ease-in-out";
+    content4.style.transition = "all 1s ease-in-out";
+
+    await sleep(1000);
+
+    content1.classList.add('active');
+    content2.classList.add('active');
+
+}
+
+async function scrollToContent2() {
+    console.log("scrolling to content 2");
+    content1.style.transition = "all 1s ease-in-out";
+    content2.style.transition = "all 1s ease-in-out";
+    content1.classList.remove('active');
+    content2.classList.remove('active');
+
+    await sleep(5000);
+
+    content3.classList.add('active');
+    content4.classList.add('active');
+}
 
 async function hideThenShowIcons() {
     let buttons = document.querySelectorAll(".buttons");
@@ -36,23 +72,12 @@ function sideToTopBar() {
     navbar.style.transitionProperty = "height, width";
     navbar.classList.add('topbar');
 
-    content1.style.transition = "all 2s ease-in-out";
-    content1.classList.add('active');
-
-    content2.style.transition = "all 2s ease-in-out";
-    content2.classList.add('active');
     hideThenShowIcons();
 }
 
 function topToSideBar() {
     navbar.style.transitionProperty = "width, height";
     navbar.classList.remove('topbar');
-
-    content1.style.transition = "all 2.4s ease-in-out";
-    content1.classList.remove('active');
-
-    content2.style.transition = "all 2.4s ease-in-out";
-    content2.classList.remove('active');
 
     hideThenShowIcons();
 }
