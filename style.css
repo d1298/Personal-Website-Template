@@ -1,0 +1,126 @@
+@font-face {
+    font-family:"San Fran";
+    src:url("SFPRODISPLAYMEDIUM.OTF");
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.796);
+    transition-property: width, height;
+    transition-duration: 1.4s,1.5s;
+    transition-delay: 0s,1.3s;
+    transition-timing-function: ease-in-out;
+
+
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.navbar button {
+    margin: 10px;
+}
+
+.buttons {
+    background: none;
+    border: none;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.buttons:hover {
+    cursor: pointer;
+    animation: scaleUp 0.2s ease-in-out forwards;
+}
+
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.02);
+    }
+}
+
+
+/* transitioning */
+
+
+
+
+
+/* TOPBAR*/
+
+.navbar.topbar {
+    opacity: 100%;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    left: 0;
+    top: 0;
+}
+
+.navbar.topbar ul {
+    flex-direction: row;
+    justify-content: right;
+    width: 100%;
+    padding-right: 25px;
+}
+
+.navbar.topbar li {
+    display: inline-block;
+}
+
+.content1 {
+    text-align: right;
+    position: fixed;
+    top: 60px;
+    right: 200px;
+    color: rgb(0, 0, 0);
+    transition: all 1.7s ease-in-out;
+    padding: 100px;
+}
+
+.content1.active {
+    right: 0px;
+    color: rgb(255, 255, 255);
+}
+
+.content2 {
+    position: fixed;
+    bottom: 0;
+    left: 200px;
+    padding: 100px;
+    color: rgb(0, 0, 0);
+    transition: all 1.7s ease-in-out;
+}
+
+.content2.active {
+    left: 0px;
+    color: rgb(255, 255, 255);
+}
+
+.footer {
+    margin-top: 120vh;
+}
