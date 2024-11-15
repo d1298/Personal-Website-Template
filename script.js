@@ -4,42 +4,61 @@ window.onbeforeunload = () => {
     window.scrollTo(0,0);
 }
 
+window.onload = () => {
+    welcome.classList.add('active');
+}
+
+function scrollToTop() {
+    window.scrollTo(0,0);
+    welcome.classList.add('active');
+    content1.classList.remove('active');
+    content2.classList.remove('active');
+    content3.classList.remove('active');
+    content4.classList.remove('active');
+
+}
+
 window.addEventListener('scroll', () => {
     console.log(window.scrollY);
-    
-    if (window.scrollY > 110) {
+    if (window.scrollY > 210) {
+        end.classList.add('active');
+        content1.classList.remove('active');
+        content2.classList.remove('active');
+        content3.classList.remove('active');
+        content4.classList.remove('active');
+    }else if (window.scrollY > 110) {
         scrollToContent2();
-
     } else if ((10 < window.scrollY) && (window.scrollY < 110)) {
         scrollToContent1();
-
     } else if (window.scrollY < 10) {
         topToSideBar();
+        end.classList.remove('active');
+        welcome.classList.add('active');
+        content1.classList.remove('active');
+        content2.classList.remove('active');
+        content3.classList.remove('active');
+        content4.classList.remove('active');
+
     }
 });
 async function scrollToContent1() {
+    end.classList.remove('active');
+    console.log("scrolling to content 1")
     sideToTopBar();
+    welcome.classList.remove('active');
     content3.classList.remove('active');
     content4.classList.remove('active');
-    content3.style.transition = "all 1s ease-in-out";
-    content4.style.transition = "all 1s ease-in-out";
-
-    await sleep(1000);
-
     content1.classList.add('active');
     content2.classList.add('active');
 
 }
 
 async function scrollToContent2() {
+    end.classList.remove('active');
     console.log("scrolling to content 2");
-    content1.style.transition = "all 1s ease-in-out";
-    content2.style.transition = "all 1s ease-in-out";
+    welcome.classList.remove('active');
     content1.classList.remove('active');
     content2.classList.remove('active');
-
-    await sleep(5000);
-
     content3.classList.add('active');
     content4.classList.add('active');
 }
